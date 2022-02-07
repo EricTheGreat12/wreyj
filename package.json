@@ -19,6 +19,9 @@
   "homepage": "https://github.com/EricTheGreat12/wreyj#readme",
   "devDependencies": {
     "css-loader": "^6.6.0",
-    "style-loader": "^3.3.1"
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
   }
 }
