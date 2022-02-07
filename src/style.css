@@ -1,3 +1,8 @@
+:root {
+    --grey: rgb(88, 88, 88);
+    --square-size: min(calc((100vh - 250px) / 6), calc((100vw / 5) - 12px), 60px)
+}
+
 html, body {
     margin: 0;
     height: 100vh;
@@ -10,17 +15,46 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     font-family: sans-serif;
 }
 
 header {
     width: 100vw;
-    height: 64px;
+    height: 50px;
+    flex: none;
     font-size: 32px;
-    border-bottom: 1px solid rgb(88, 88, 88);
+    border-bottom: 1px solid var(--grey);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#gameBoard {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameBoardRow {
+    display: flex;
+}
+
+.gameBoardSquare {
+    height: var(--square-size);
+    width: var(--square-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--grey);
+    border-radius: 2px;
+    margin: 4px;
+}
+
+#keyboard {
+    height: 200px;
+    width: 100vw;
+    flex: none;
+    background-color: var(--grey);
+    margin: auto 0 8px;
 }
