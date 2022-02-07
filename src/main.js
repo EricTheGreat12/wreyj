@@ -17,6 +17,7 @@ const page = (() => {
         for (let i = 0; i < 6; i++) {
             row = document.createElement("div");
             row.classList.add("gameBoardRow");
+            gameBoard.append(row);
             for (let x = 0; x < 5; x++) {
                 squareContainer = document.createElement("div");
                 squareContainer.classList.add("squareContainer");
@@ -34,16 +35,34 @@ const page = (() => {
                     square.classList.add("correct");
                 }
             }
-            gameBoard.append(row);
         }
         return gameBoard;
     }
 
+    const chars = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+                    ['ENT', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL']];
+
     const makeKeyboard = () => {
         const keyBoard = document.createElement("div");
-        keyBoard.id = "keyboard"
-        keyBoard.textContent = "keyboard";
+        keyBoard.id = "keyboard";
+        for (let i in chars) {
+            let row = document.createElement("div");
+            row.classList.add("keyboardRow");
+            keyBoard.append(row);
+            for (let x in chars[i]) {
+                row.append(makeKey(chars[i][x]));
+            }
+        }
         return keyBoard;
+    }
+
+    const makeKey = (char) => {
+        const key = document.createElement("div");
+        key.id = char;
+        key.textContent = char;
+        key.classList.add("key");
+        return key;
     }
 
     const make = () => {
