@@ -1,13 +1,16 @@
 :root {
+    --gameboard-height: min(calc(100vh - 250px), 750px);
+    --gameboard-width: min(calc(var(--gameboard-height) / 6 * 5),
+         calc(100vw - 8px));
     --grey: rgb(88, 88, 88);
-    --square-size: min(calc((100vh - 250px) / 6), calc((100vw / 5) - 12px), 60px)
+    --yellow: #b59f3b;
+    --green: #6aaa64;
 }
 
 html, body {
     margin: 0;
     height: 100vh;
     font-family:sans-serif;
-    overflow: hidden;
 }
 
 body {
@@ -32,29 +35,57 @@ header {
 
 #gameBoard {
     margin-top: 8px;
+    padding: auto 0;
+    height: var(--gameboard-height);
+    width: var(--gameboard-width);
     display: flex;
+    gap: 4px;
     flex-direction: column;
 }
 
 .gameBoardRow {
     display: flex;
+    gap: 4px;
+    margin: auto 0;
 }
 
-.gameBoardSquare {
-    height: var(--square-size);
-    width: var(--square-size);
+.squareContainer {
+    position: relative;
+    width: 20%;
+}
+
+.squareContainer::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.square {
+    position: absolute;
+    top:      0;
+    left:     0;
+    bottom:   0;
+    right:    0;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid var(--grey);
     border-radius: 2px;
-    margin: 4px;
+    font-weight: 700;
+}
+
+.present {
+    background-color: var(--yellow);
+}
+
+.correct {
+    background-color: var(--green);
 }
 
 #keyboard {
-    height: 200px;
     width: 100vw;
+    height: 200px;
     flex: none;
     background-color: var(--grey);
-    margin: auto 0 8px;
+    margin: 8px 0;
 }
