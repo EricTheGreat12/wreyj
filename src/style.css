@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    height: 100vh;
+    font-family:sans-serif;
+    overflow: hidden;
+}
+
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+header {
+    width: 100vw;
+    height: 64px;
+    font-size: 32px;
+    border-bottom: 1px solid rgb(88, 88, 88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
