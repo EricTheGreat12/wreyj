@@ -24,15 +24,27 @@ const page = (() => {
                 row.append(squareContainer);
 
                 square = document.createElement("div");
-                square.textContent = "W";
+                square.id = `square${i}${x}`
                 square.classList.add("square");
+                square.textContent = "";
                 squareContainer.append(square);
 
-                if (i == 1) {
-                    square.classList.add("present");
+                //for testing styles
+                if (i == 0) {
+                    square.classList.add("absent");
+                    square.textContent = "T"
                 }
-                if (i == 3) {
+                else if (i == 1) {
+                    square.classList.add("present");
+                    square.textContent = "W"
+                }
+                else if (i == 2) {
                     square.classList.add("correct");
+                    square.textContent = "C"
+                }
+                else if (i == 3) {
+                    square.classList.add("unchecked");
+                    square.textContent = "H";
                 }
             }
         }
@@ -41,7 +53,7 @@ const page = (() => {
 
     const chars = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
                     ['spacer', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'spacer'],
-                    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DELETE']];
+                    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL']];
 
     const makeKeyboard = () => {
         const keyBoard = document.createElement("div");
@@ -69,7 +81,7 @@ const page = (() => {
             key.textContent = char;
             key.classList.add("key", "bigKey");
         }
-        else if (char == 'DELETE') {
+        else if (char == 'DEL') {
             key = document.createElement("button");
             key.id = char;
             key.textContent = char;
@@ -89,7 +101,14 @@ const page = (() => {
         document.body.append(makeHeader(), makeGameBoard(), makeKeyboard());
     }
 
-    return { make }
+    const reset = () => {
+        while (document.body.firstChild.nextSibling) {
+            document.body.firstChild.nextSibling.remove();
+        }
+        make();
+    }
+
+    return { make, reset }
 })();
 
 page.make();
