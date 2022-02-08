@@ -1,6 +1,6 @@
 import "./style.css"
 const page = (() => {
-    const makeHeader = () => {
+    const _makeHeader = () => {
         const header = document.createElement("header");
         const title = document.createElement("div");
         title.textContent = "WREYJL";
@@ -8,7 +8,7 @@ const page = (() => {
         return header;
     }
 
-    const makeGameBoard = () => {
+    const _makeGameBoard = () => {
         const gameBoard = document.createElement("div");
         gameBoard.id = "gameBoard";
         let row;
@@ -51,25 +51,25 @@ const page = (() => {
         return gameBoard;
     }
 
-    const chars = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-                    ['spacer', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'spacer'],
-                    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL']];
+    const _chars = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+            ['spacer', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'spacer'],
+            ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL']];
 
-    const makeKeyboard = () => {
+    const _makeKeyboard = () => {
         const keyBoard = document.createElement("div");
         keyBoard.id = "keyboard";
-        for (let i in chars) {
+        for (let i in _chars) {
             let row = document.createElement("div");
             row.classList.add("keyboardRow");
             keyBoard.append(row);
-            for (let x in chars[i]) {
-                row.append(makeKey(chars[i][x]));
+            for (let x in _chars[i]) {
+                row.append(_makeKey(_chars[i][x]));
             }
         }
         return keyBoard;
     }
 
-    const makeKey = (char) => {
+    const _makeKey = (char) => {
         let key;
         if (char == 'spacer') {
             key = document.createElement("div");
@@ -98,7 +98,8 @@ const page = (() => {
     }
 
     const make = () => {
-        document.body.append(makeHeader(), makeGameBoard(), makeKeyboard());
+        document.body.append(
+            _makeHeader(), _makeGameBoard(), _makeKeyboard());
     }
 
     const reset = () => {
