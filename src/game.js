@@ -37,11 +37,15 @@ export const game = (() => {
         }
     }
 
-    //game.enter()
+    const enter = () => {
+        if (col == 5) {
+
+        }
+        else {
+            gameBoard.shakeRow(row);
+        }
+    }
     //game.checkWord()
-    
 
-    //game.del()
-
-    return { resetAll, playChar, del }
+    return { resetAll, playChar, del, enter }
 })();

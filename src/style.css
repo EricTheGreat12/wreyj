@@ -55,6 +55,10 @@ header {
     margin: auto 0;
 }
 
+.shakeRow {
+    animation: Shake .7s;
+}
+
 .squareContainer {
     position: relative;
     width: 20%;

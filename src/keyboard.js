@@ -30,6 +30,7 @@ export const keyboard = (() => {
             key = document.createElement("button");
             key.id = char;
             key.textContent = char;
+            key.addEventListener("click", game.enter)
             key.classList.add("key", "bigKey");
         }
         else if (char == 'DEL') {
