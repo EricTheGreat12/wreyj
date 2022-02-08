@@ -40,8 +40,8 @@ const page = (() => {
     }
 
     const chars = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-                    ['ENT', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL']];
+                    ['spacer', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'spacer'],
+                    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DELETE']];
 
     const makeKeyboard = () => {
         const keyBoard = document.createElement("div");
@@ -58,10 +58,30 @@ const page = (() => {
     }
 
     const makeKey = (char) => {
-        const key = document.createElement("div");
-        key.id = char;
-        key.textContent = char;
-        key.classList.add("key");
+        let key;
+        if (char == 'spacer') {
+            key = document.createElement("div");
+            key.classList.add(char);
+        }
+        else if (char == 'ENTER') {
+            key = document.createElement("button");
+            key.id = char;
+            key.textContent = char;
+            key.classList.add("key", "bigKey");
+        }
+        else if (char == 'DELETE') {
+            key = document.createElement("button");
+            key.id = char;
+            key.textContent = char;
+            key.classList.add("key", "bigKey");
+        }
+        else {
+            key = document.createElement("button");
+            key.id = char;
+            key.textContent = char;
+            key.classList.add("key");
+        }
+        
         return key;
     }
 
