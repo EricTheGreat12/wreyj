@@ -21,9 +21,3 @@ const page = (() => {
 
 page.reset();
 game.resetAll();
-game.playChar("W")
-game.playChar("R")
-game.playChar("E")
-game.playChar("Y")
-game.playChar("J")
-game.playChar("f")

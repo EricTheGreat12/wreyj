@@ -1,3 +1,5 @@
+import { game } from "./game";
+
 export const keyboard = (() => {
 
     const chars = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -34,12 +36,15 @@ export const keyboard = (() => {
             key = document.createElement("button");
             key.id = char;
             key.textContent = char;
+            key.addEventListener("click", game.del)
+
             key.classList.add("key", "bigKey");
         }
         else {
             key = document.createElement("button");
             key.id = char;
             key.textContent = char;
+            key.addEventListener("click", (e) => game.playChar(e.target.id))
             key.classList.add("key");
         }
         
