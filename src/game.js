@@ -2,7 +2,7 @@ import { gameBoard } from "./gameBoard";
 import { keyboard } from "./keyboard";
 
 export const game = (() => {
-    let word = "TERKI";
+    let word = "QWACK";
     let row = 0;
     let col = 0;
 
