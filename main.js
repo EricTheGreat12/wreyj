@@ -546,7 +546,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const game = (() => {
-    let word = "TERKI";
+    let word = "QWACK";
     let row = 0;
     let col = 0;
 
