@@ -51,5 +51,10 @@ export const keyboard = (() => {
         
         return key;
     }
-    return { make }
+    
+    const updateKey = (char, state) => {
+        const key = document.getElementById(char);
+        key.className = `key ${state}`;
+    }
+    return { make, updateKey }
 })();
