@@ -77,8 +77,8 @@ export const game = (() => {
             gameBoard.updateSquare(row, i, gameArray[row][i]);
         }
         else if (word.includes(gameArray[row][i].char)) {
-            keyboard.updateKey(gameArray[row][i])
             gameArray[row][i].state = "present";
+            keyboard.updateKey(gameArray[row][i])
             gameBoard.updateSquare(row, i, gameArray[row][i]);
         }
         else {
