@@ -1,4 +1,5 @@
 import { gameBoard } from "./gameBoard";
+import { keyboard } from "./keyboard";
 
 export const game = (() => {
     let word = "TERKI";
@@ -72,14 +73,17 @@ export const game = (() => {
     const checkChar = (i) => {
         if (gameArray[row][i].char == word[i]) {
             gameArray[row][i].state = "correct";
+            keyboard.updateKey(gameArray[row][i])
             gameBoard.updateSquare(row, i, gameArray[row][i]);
         }
         else if (word.includes(gameArray[row][i].char)) {
+            keyboard.updateKey(gameArray[row][i])
             gameArray[row][i].state = "present";
             gameBoard.updateSquare(row, i, gameArray[row][i]);
         }
         else {
             gameArray[row][i].state = "absent";
+            keyboard.updateKey(gameArray[row][i])
             gameBoard.updateSquare(row, i, gameArray[row][i]);
 
         }
