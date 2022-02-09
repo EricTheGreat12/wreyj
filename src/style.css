@@ -87,21 +87,42 @@ header {
 
 .present {
     background-color: var(--yellow);
-    border: none;
+    border-color: var(--yellow);
+    animation: Flip 1s;
 }
 
 .correct {
     background-color: var(--green);
-    border: none;
+    border-color: var(--green);
+    animation: Flip 1s;
 }
 
 .absent {
     background-color: var(--dark-grey);
-    border: none;
+    border-color: var(--dark-grey);
+    animation: Flip 1s;
 }
 
 .unchecked {
     border-color: var(--med-grey);
+}
+
+@keyframes Flip {
+    from {
+        transform: rotateX(180deg);
+        color: var(--dark);
+        background-color: var(--dark);
+        border-color: var(--dark-grey);
+    }
+    50% {
+        transform: rotateX(270deg);
+        color: var(--dark);
+        background-color: var(--dark);
+        border-color: var(--dark-grey);
+    }
+    to {
+        transform: rotateX(360deg);
+    }
 }
 
 #keyboard {

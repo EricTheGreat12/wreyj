@@ -1,6 +1,7 @@
 import { gameBoard } from "./gameBoard";
 
 export const game = (() => {
+    let word = "TERKI";
     let row = 0;
     let col = 0;
 
@@ -39,13 +40,50 @@ export const game = (() => {
 
     const enter = () => {
         if (col == 5) {
-
+            checkWord();
         }
         else {
             gameBoard.shakeRow(row);
         }
     }
-    //game.checkWord()
+    
+    const checkWord = () => {
+        let guess = "";
+        for (let i in gameArray[row]) {
+            guess += gameArray[row][i].char;
+        }
+        let i = 0;
+        function loop() {
+            checkChar(i);
+            setTimeout(function() {
+                i++;
+                if (i < 5) {
+                    loop();
+                }
+                else if (i == 5 && row < 5) {
+                    col = 0
+                    row++;
+                }
+            }, 100)
+        }
+        loop();
+    }
+
+    const checkChar = (i) => {
+        if (gameArray[row][i].char == word[i]) {
+            gameArray[row][i].state = "correct";
+            gameBoard.updateSquare(row, i, gameArray[row][i]);
+        }
+        else if (word.includes(gameArray[row][i].char)) {
+            gameArray[row][i].state = "present";
+            gameBoard.updateSquare(row, i, gameArray[row][i]);
+        }
+        else {
+            gameArray[row][i].state = "absent";
+            gameBoard.updateSquare(row, i, gameArray[row][i]);
+
+        }
+    }
 
     return { resetAll, playChar, del, enter }
 })();
